@@ -20,22 +20,22 @@
             <div class="item-wrapper">
                 <h3 class="subheader">
                     <h2>
-                           <strong> Name: {{$shirt->name}} </strong>
+                           <strong> {{$shirt->name}} </strong>
                         </h2>
-                     <span class="price-tag">Price: ${{$shirt->price}}</span>
+                     <span class="price-tag"> ${{$shirt->price}}</span>
                 </h3>
                 <div class="row">
                     <div class="large-12 columns">
                         
                          <h5>
-                       Description: {{$shirt->description}}
+                       {{$shirt->description}}
                     </h5>
-                        <a href="{{route('cart.addItem',$shirt->id)}}" class="button  expanded">Add to Cart</a>
+                        <a href="{{route('cart.addItem',$shirt->id)}}" class="button  expanded">Thêm vào giỏ</a>
                     </div>
                 </div>
                 
                 <div class="row">
-                <p><strong>Another Products </strong></p>
+                <p><strong>Sản phẩm bạn có thể thích </strong></p>
 
             @forelse($shirts as $shirt)
             <div class="small-3 columns">
@@ -43,7 +43,7 @@
                 <div class="item-wrapper">
                     <div class="img-wrapper">
                         <a href="{{route('cart.addItem',$shirt->id)}}" class="button expanded add-to-cart">
-                            Add to Cart
+                            Thêm vào giỏ
                         </a>
                         <a href="{{route('shirt.Item',$shirt->id)}}">
                             <img src="{{url('images',$shirt->image)}}"/>

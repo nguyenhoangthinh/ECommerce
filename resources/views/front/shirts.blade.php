@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title','Shirts')
+@section('title','Danh sách sản phẩm')
 @section('content')
     <!-- products listing -->
     <!-- Latest SHirts -->
@@ -10,7 +10,7 @@
                 <div class="item-wrapper">
                     <div class="img-wrapper">
                         <a href="{{route('cart.addItem',$shirt->id)}}" class="button expanded add-to-cart">
-                            Add to Cart
+                           Thêm vào giỏ
                         </a>
                         <a href="{{route('shirt.Item',$shirt->id)}}">
                             <img src="{{url('images',$shirt->image)}}"/>
@@ -31,7 +31,7 @@
             </div>
 
         @empty
-        <h3>No shirts</h3>
+        <h3>Không có sản phẩm để hiển thị</h3>
        @endforelse
     </div>
 @endsection

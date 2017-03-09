@@ -20,7 +20,10 @@
           <strong>  MyKey&rsquo;s Latest Shirts </strong>
         </h2>
         </div>
-       
+
+        <div class="container">
+  <br>
+  @include('partials._slider', ['prods' => $shirts])
         <!-- Latest SHirts -->
         <div class="row">
             @forelse($shirts as $shirt)

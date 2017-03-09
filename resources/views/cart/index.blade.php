@@ -1,18 +1,18 @@
-@extends('layouts.main')
+@extends('layout.main')
 
 @section('content')
     <div class="row">
-        <h3>Cart Items</h3>
+        <h3>Giỏ hàng</h3>
 
 
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>qty</th>
-                <th>size</th>
-                <th>Action</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Kích cỡ</th>
+                <th>Thao tác</th>
             </tr>
             </thead>
             <tbody>
@@ -23,8 +23,6 @@
                     <td width="50px">
                         {!! Form::open(['route' => ['cart.update',$cartItem->rowId], 'method' => 'PUT']) !!}
                         <input name="qty" type="text" value="{{$cartItem->qty}}">
-
-
                     </td>
                     <td>
                         <div > {!! Form::select('size', ['small'=>'Small','medium'=>'Medium','large'=>'Large'] , $cartItem->options->has('size')?$cartItem->options->size:'' ) !!}
@@ -48,11 +46,11 @@
             <tr>
                 <td></td>
                 <td>
-                    Tax: ${{Cart::tax()}} <br>
-                    Sub Total: $ {{Cart::subtotal()}} <br>
-                    Grand Total: $ {{Cart::total()}}
+                    Thuế: ${{Cart::tax()}} <br>
+                    Tổng tiền: $ {{Cart::subtotal()}} <br>
+                    Tổng thanh toán: $ {{Cart::total()}}
                 </td>
-                <td>Items: {{Cart::count()}}
+                <td>Số lượng: {{Cart::count()}}
 
                 </td>
                 <td></td>
@@ -61,8 +59,10 @@
             </tr>
             </tbody>
         </table>
-
-        <a href="{{route('checkout.shipping')}}" class="button">Checkout</a>
+        @if(Cart::count() > 0)
+        <a href="{{route('checkout.shipping')}}" class="button">Thanh toán</a>
+        @endif
+        
     </div>
 
 
