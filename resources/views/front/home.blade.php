@@ -8,30 +8,33 @@
             <br/>
             <h2 >
                 <strong>
-                    Hey! Welcome to MC- Mykey's Store
+                    Hey! Welcome to 3T-Shop
                 </strong>
             </h2>
             <br>
-            <a href="{{url('/shirts')}}"><button class="button large">Check out My Shirts</button></a>
+            <a href="{{url('/shirts')}}"><button class="button large">Đi tới sản phẩm</button></a>
         </section>
         <br/>
         <div class="subheader text-center">
              <h2>
-          <strong>  MyKey&rsquo;s Latest Shirts </strong>
+          <strong>  3T-Shop&rsquo;s Sản phẩm gần đây </strong>
         </h2>
         </div>
 
         <div class="container">
   <br>
   @include('partials._slider', ['prods' => $shirts])
+
         <!-- Latest SHirts -->
+        <br>
         <div class="row">
+
             @forelse($shirts as $shirt)
             <div class="small-3 columns">
                 <div class="item-wrapper">
                     <div class="img-wrapper">
                         <a href="{{route('cart.addItem',$shirt->id)}}" class="button expanded add-to-cart">
-                            Add to Cart
+                            Thêm vào giỏ
                         </a>
                         <a href="{{route('shirt.Item',$shirt->id)}}">
                             <img src="{{url('images',$shirt->image)}}"/>
